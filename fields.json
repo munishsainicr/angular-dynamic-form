@@ -1,0 +1,53 @@
+[
+    {
+        "name": "Call Id",
+        "required": true,
+        "type": "text"
+    },
+    {
+        "name": "Gender",
+        "required": true,
+        "type": "radio",
+        "options": [
+            
+            {
+                "name": "Male",
+                "value": "male"
+            },
+            {
+                "name": "Female",
+                "value": "female"
+            }
+        ]
+    },
+    {
+        "name": "Mode of Payment",
+        "type": "select",
+        "options": [
+            {
+                "name": "By Online Payment"
+            },
+            {
+                "name": "By Cheque"
+            },
+            {
+                "name": "By Cash"
+            }
+        ]
+    },
+    {
+        "name": "Audit Required",
+        "type": "checkboxes",
+        "options": [
+            {
+                "name": "Maker",
+                "value": "isMaker"
+            },
+            {
+                "name": "Checker",
+                "value": "isChecker"
+            }
+        ],
+        "value": {}
+    }
+]

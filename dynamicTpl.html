@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Dynamic Section</h3>
+    </div>
+
+    <div class="panel-body" style="overflow:auto;">
+        <div ng-repeat="field in fields | orderBy:'order'">
+
+            <ng-switch on="field.type">
+
+                <form class="form-inline">
+                    <div class="form-group col-md-6">
+                        <div class="col-md-4">
+                            <label for="firstName">{{field.name}}</label>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input ng-switch-when="text" type="text" class="form-control" ng-model="field.value" value="{{field.value}}" placeholder="{{field.name}}">
+
+                            <select ng-switch-when="select" class="form-control" ng-model="field.value">
+			                    <option ng-repeat="option in field.options"value="{{option.value}}">{{option.name}}</option>
+			                </select>
+
+                            <fieldset ng-switch-when="radio" >
+                                <label ng-repeat="option in field.options">
+				                    <input type="radio" ng-model="field.value" value="{{option.value}}"> {{option.name}} &nbsp;
+			                    </label>
+                            </fieldset>
+
+                            <fieldset ng-switch-when="checkboxes">
+                                <label ng-repeat="option in field.options">
+				                    <input type="checkbox" ng-model="field.value[tokenize(option.name)]" value="{{option.value}}"> {{option.name}} &nbsp;
+			                    </label>
+                            </fieldset>
+
+                        </div>
+
+                        <br ng-if="($index+1)%2==0"><br ng-if="($index+1)%2==0">
+                    </div>
+                </form>
+            </ng-switch>
+        </div>
+    </div>
+</div>
